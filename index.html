@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Pages Site</title>
+    <style>
+        /* Base Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+        
+        /* Layout Containers */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+        .btn:hover {
+            background-color: #4338ca;
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Main Grid / Features Section */
+        .features {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: #64748b;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        footer p {
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">My Project</a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Hero Branding Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to My GitHub Pages Site</h1>
+            <p>This is a clean, responsive landing page template ready to be customized for your personal portfolio, open-source project, or documentation site.</p>
+            <a href="#features" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Content / Grid Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="grid">
+                <!-- Overview Card 1 -->
+                <div class="card">
+                    <h3>Clean Modern Design</h3>
+                    <p>Built using semantic HTML5 elements and modern layout principles to render smoothly across all device sizes and mobile configurations.</p>
+                </div>
+                <!-- Overview Card 2 -->
+                <div class="card">
+                    <h3>GitHub Pages Ready</h3>
+                    <p>Structured as a single independent file that deploys directly into your shell repository without needing a complex build configuration.</p>
+                </div>
+                <!-- Overview Card 3 -->
+                <div class="card">
+                    <h3>Highly Customizable</h3>
+                    <p>Easily swap out variables, colors, font rules, or content markers within the file to make it represent your project perfectly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 My GitHub Pages Project. Built using clean HTML and CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
