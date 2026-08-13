@@ -3,211 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>Sean McCullough's Academic and Professional Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Elegant Academic Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        /* Base Reset and Typography */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #334155;
-            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
         }
-        
-        /* Layout Containers */
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+        h1, h2, h3, .academic-serif {
+            font-family: 'Playfair Display', serif;
         }
-
-        /* Navigation Header */
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* Custom scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+        /* Active nav item indicator custom styling */
+        .nav-active {
+            color: #1e3a8a; /* Tailwind blue-900 */
+            border-bottom: 2px solid #1e3a8a;
         }
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #0f172a;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .nav-links a:hover {
-            color: #4f46e5;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #ffffff, #f1f5f9);
-        }
-        .hero h1 {
-            font-size: 3rem;
-            color: #0f172a;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: #475569;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #4f46e5;
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
-        }
-        .btn:hover {
-            background-color: #4338ca;
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Main Grid / Features Section */
-        .features {
-            padding: 60px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 40px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .card h3 {
-            font-size: 1.25rem;
-            color: #0f172a;
-            margin-bottom: 12px;
-        }
-        .card p {
-            color: #64748b;
-        }
-
-        /* Footer Section */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-        }
-        footer p {
-            font-size: 0.875rem;
-        }
-
-        /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .grid {
-                grid-template-columns: 1fr;
+            .nav-active {
+                border-bottom: none;
+                background-color: #f3f4f6;
+                padding-left: 1rem;
+                border-left: 4px solid #1e3a8a;
             }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- Header Navigation Bar -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">My Project</a>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Hero Branding Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to My GitHub Pages Site</h1>
-            <p>This is a clean, responsive landing page template ready to be customized for your personal portfolio, open-source project, or documentation site.</p>
-            <a href="#features" class="btn">Get Started</a>
-        </div>
-    </section>
-
-    <!-- Content / Grid Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Project Overview</h2>
-            <div class="grid">
-                <!-- Overview Card 1 -->
-                <div class="card">
-                    <h3>Clean Modern Design</h3>
-                    <p>Built using semantic HTML5 elements and modern layout principles to render smoothly across all device sizes and mobile configurations.</p>
+    <!-- Header & Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#" onclick="switchTab('home')" class="text-xl font-bold tracking-tight text-blue-900 hover:text-blue-700 transition">
+                        Dr. Sean McCullough, PhD
+                    </a>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest font-medium">Academic and Technology Professional</p>
                 </div>
-                <!-- Overview Card 2 -->
-                <div class="card">
-                    <h3>GitHub Pages Ready</h3>
-                    <p>Structured as a single independent file that deploys directly into your shell repository without needing a complex build configuration.</p>
-                </div>
-                <!-- Overview Card 3 -->
-                <div class="card">
-                    <h3>Highly Customizable</h3>
-                    <p>Easily swap out variables, colors, font rules, or content markers within the file to make it represent your project perfectly.</p>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <button onclick="switchTab('home')" id="nav-home" class="text-slate-600 hover:text-blue-900 px-1 py-5 transition nav-active">Home</button>
+                    <button onclick="switchTab('research')" id="nav-research" class="text-slate-600 hover:text-blue-900 px-1 py-5 transition">Research Statement</button>
+                    <button onclick="switchTab('resume')" id="nav-resume" class="text-slate-600 hover:text-blue-900 px-1 py-5 transition">Resume</button>
+                    <button onclick="switchTab('cv')" id="nav-cv" class="text-slate-600 hover:text-blue-900 px-1 py-5 transition">CV</button>
+                    <button onclick="switchTab('contact')" id="nav-contact" class="text-slate-600 hover:text-blue-900 px-1 py-5 transition">Contact & About</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-md hover:bg-slate-100" aria-label="Toggle navigation menu">
+                        <svg class="h-6 w-6" id="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Site Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 My GitHub Pages Project. Built using clean HTML and CSS.</p>
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-inner">
+            <button onclick="switchTab('home')" id="mobile-nav-home" class="block w-full text-left text-slate-600 hover:text-blue-900 py-2.5 px-3 rounded-md text-base font-medium">Home</button>
+            <button onclick="switchTab('research')" id="mobile-nav-research" class="block w-full text-left text-slate-600 hover:text-blue-900 py-2.5 px-3 rounded-md text-base font-medium">Research Statement</button>
+            <button onclick="switchTab('resume')" id="mobile-nav-resume" class="block w-full text-left text-slate-600 hover:text-blue-900 py-2.5 px-3 rounded-md text-base font-medium">Resume</button>
+            <button onclick="switchTab('cv')" id="mobile-nav-cv" class="block w-full text-left text-slate-600 hover:text-blue-900 py-2.5 px-3 rounded-md text-base font-medium">CV</button>
+            <button onclick="switchTab('contact')" id="mobile-nav-contact" class="block w-full text-left text-slate-600 hover:text-blue-900 py-2.5 px-3 rounded-md text-base font-medium">Contact & About</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- ================= HOME PAGE / LANDING ================= -->
+        <section id="page-home" class="tab-content block">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+                <!-- Left: Headshot & Quick Info -->
+                <div class="md:col-span-1 bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center text-center">
+                    <img src="./assets/me.jpeg" alt="Dr. Sean McCullough Headshot" class="w-48 h-48 rounded-full object-cover border-4 border-slate-100 shadow-md mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-1">Dr. Sean McCullough</h2>
+                    <p class="text-blue-800 font-medium text-sm mb-4">Academic and Technology Professional</p>
+                    <div class="w-full border-t border-slate-100 my-4"></div>
+                    <div class="w-full text-left space-y-3 text-sm text-slate-600">
+                        <p class="flex items-center gap-2">
+                            <span class="font-semibold text-slate-800 w-20">Affiliation:</span> Texas Christian University
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="font-semibold text-slate-800 w-20">Department:</span> English
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-3 w-full">
+                        <button onclick="switchTab('contact')" class="flex-1 text-center bg-blue-900 text-white py-2 px-4 rounded-lg font-medium text-sm hover:bg-blue-800 transition shadow-sm">Get In Touch</button>
+                    </div>
+                </div>
+
+                <!-- Right: Detailed Blurb & Highlights -->
+                <div class="md:col-span-2 space-y-8">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <h1 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">Greetings</h1>
+                        <div class="text-slate-700 leading-relaxed space-y-4 text-base">
+                            <p>
+                                I am a technology architect and graduate from the Rhetoric and Composition PhD program at Texas Christian University. My academic journey is fueled by an interest in investigating the intersection of artificial intelligence, human computer interaction, and knowledge production through writing.
+                            </p>
+                            <p>
+                                My primary research goals explore how computer infrastructures—and, recently, generative AI—mediate knowledge. I completed my PhD in Rhetoric and Composition at Texas Christian University, complemented by an extensive career in technology consulting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Highlight Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-blue-50 text-blue-900 rounded-lg flex items-center justify-center font-bold mb-4">🔬</div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Core Research</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Investigating digital rhetoric, infrastructural mechanics, and how composition practices evolve alongside technologies.</p>
+                            <button onclick="switchTab('research')" class="text-xs font-semibold text-blue-900 hover:text-blue-700 mt-4 block">Read Statement &rarr;</button>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-blue-50 text-blue-900 rounded-lg flex items-center justify-center font-bold mb-4">🎓</div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Academic & Tech Track</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">Balancing corporate enterprise architectures with historical, pedagogical, and critical digital humanities scholarship.</p>
+                            <button onclick="switchTab('cv')" class="text-xs font-semibold text-blue-900 hover:text-blue-700 mt-4 block">View Full CV &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RESEARCH STATEMENT ================= -->
+        <section id="page-research" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-xl border border-slate-200 shadow-sm space-y-8">
+                <div class="border-b border-slate-100 pb-6">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-2">Research Philosophy & Directions</h1>
+                    <p class="text-slate-500 font-medium">Digital Rhetoric, Composition Frameworks, and Infrastructural Knowledge</p>
+                </div>
+
+                <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">1. Executive Overview</h3>
+                        <p>
+                            My research investigates how computer infrastructures—and specifically semantic generative AI layers—shape human meaning-making and professional writing production. By looking at software systems through a rhetorical lens, I analyze how interfaces, databases, and language models serve as active agents in framing knowledge.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">2. Current Strategic Initiatives</h3>
+                        <div class="space-y-4 mt-2">
+                            <div class="pl-4 border-l-4 border-blue-900 py-1">
+                                <h4 class="font-semibold text-slate-900 text-base">Generative Writing Substructures</h4>
+                                <p class="text-sm text-slate-600 mt-1">Analyzing how text generation pipelines alter standard composing workflows, user agency, and stylistic uniformity across enterprise and academic environments.</p>
+                            </div>
+                            <div class="pl-4 border-l-4 border-blue-900 py-1">
+                                <h4 class="font-semibold text-slate-900 text-base">Infrastructural Rhetoric</h4>
+                                <p class="text-sm text-slate-600 mt-1">Mapping hidden software architectures, cloud environments, and configuration dependencies as rhetorical sites that actively govern information flows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RESUME ================= -->
+        <section id="page-resume" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-6 mb-8 gap-4">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900">Professional Experience</h1>
+                        <p class="text-slate-500 font-medium">Industry Overview & Technical Milestones</p>
+                    </div>
+                    <button onclick="window.print()" class="text-sm border border-slate-300 hover:bg-slate-50 text-slate-700 py-2 px-4 rounded-lg font-medium transition flex items-center gap-2">
+                        <span>🖨️</span> Print Resume
+                    </button>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xs uppercase tracking-widest font-bold text-blue-950 mb-4 border-b border-slate-100 pb-1">Professional History</h3>
+                        <div class="space-y-6">
+                            <div class="relative pl-6 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-0.5 before:bg-slate-200">
+                                <div class="absolute w-2 h-2 rounded-full bg-blue-900 left-[-3px] top-2"></div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h4 class="font-bold text-slate-900 text-base">Technology Architect & Consultant</h4>
+                                    <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">6 Years Experience</span>
+                                </div>
+                                <p class="text-sm font-medium text-slate-600 mb-2">Enterprise Technology Solutions</p>
+                                <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                                    <li>Architected robust cloud architectures and technical data strategies for complex institutional framework models.</li>
+                                    <li>Directed engineering transformations bridging corporate system pipelines with user interaction workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs uppercase tracking-widest font-bold text-blue-950 mb-4 border-b border-slate-100 pb-1">Core Competency Matrix</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-slate-900 mb-2">Systems & Technical</h4>
+                                <p class="text-slate-600">Enterprise Cloud Architecture, Systems Integration, Web Technologies, Generative AI implementation patterns.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-slate-900 mb-2">Methodological & Academic</h4>
+                                <p class="text-slate-600">Rhetorical Analysis, Curriculum Development, Qualitative Research, Document Architecture & Professional Writing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CURRICULUM VITAE (CV) ================= -->
+        <section id="page-cv" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-xl border border-slate-200 shadow-sm space-y-10">
+                <div class="text-center border-b border-slate-200 pb-8">
+                    <h1 class="text-4xl font-bold text-slate-900 mb-2">Curriculum Vitae</h1>
+                    <p class="text-lg text-slate-600">Dr. Sean McCullough</p>
+                    <p class="text-sm text-slate-400 mt-1">Last Updated: August 2026</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-sm uppercase tracking-wider font-bold text-blue-900 border-b border-slate-200 pb-2">Education</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start text-sm">
+                            <div>
+                                <p class="font-bold text-slate-900">PhD in Rhetoric and Composition</p>
+                                <p class="text-slate-600">Texas Christian University | Fort Worth, TX</p>
+                            </div>
+                            <span class="font-medium text-slate-500">Recent Graduate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-sm uppercase tracking-wider font-bold text-blue-900 border-b border-slate-200 pb-2">Research & Professional Interests</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Digital Rhetoric, Critical Infrastructure Studies, AI Prompt Engineering Contexts, Professional & Technical Writing Pedagogies, and Human-Algorithm Interface Interactions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT & CONTACT ================= -->
+        <section id="page-contact" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto text-center mb-10">
+                <h1 class="text-3xl font-bold text-slate-900 mb-2">Contact & About</h1>
+                <p class="text-slate-500 font-medium">Get in touch for academic collaborations, technical consultations, or inquiries.</p>
+            </div>
+
+            <!-- Balanced Grid Layout without Contact Form -->
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1: Institutional Location -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-xl font-bold mb-6">📍</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Institutional Address</h3>
+                        <div class="text-slate-600 space-y-1 text-sm leading-relaxed">
+                            <p class="font-medium text-slate-900">Department of English</p>
+                            <p>Texas Christian University</p>
+                            <p>TCU Box 297000</p>
+                            <p>Fort Worth, TX 76129</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 border-t border-slate-100 pt-4 text-xs text-slate-400">
+                        Campus Location: Fort Worth, Texas
+                    </div>
+                </div>
+
+                <!-- Card 2: Digital Presence & Profiles -->
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-blue-900 rounded-xl flex items-center justify-center text-xl font-bold mb-6">✉️</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Digital Channels</h3>
+                        <div class="space-y-4 text-sm">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Email Address</p>
+                                <a href="mailto:mcculls1319@gmail.com" class="text-blue-900 hover:underline font-medium break-all text-base">mcculls1319@gmail.com</a>
+                            </div>
+                            <div class="pt-2">
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Professional Directories</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <a href="https://github.com/mcculls13" class="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 transition text-xs font-medium">
+                                        <span>🐙</span> GitHub
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/sean-mccullough-828117bb" class="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 transition text-xs font-medium">
+                                        <span>💼</span> LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Dr. Sean McCullough. All rights reserved.</p>
+            <p>Hosted statically via GitHub Pages.</p>
         </div>
     </footer>
 
+    <!-- Tab Management & Navigation Interaction Logic -->
+    <script>
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            const activePage = document.getElementById(`page-${tabId}`);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+                activePage.classList.add('block');
+            }
+
+            const tabButtons = document.querySelectorAll('nav button');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('nav-active');
+            });
+
+            const activeDesktopBtn = document.getElementById(`nav-${tabId}`);
+            if (activeDesktopBtn) activeDesktopBtn.classList.add('nav-active');
+            
+            const activeMobileBtn = document.getElementById(`mobile-nav-${tabId}`);
+            if (activeMobileBtn) activeMobileBtn.classList.add('nav-active');
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
